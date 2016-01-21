@@ -1,0 +1,6 @@
+com.blazegraph.gremlin.console
+com.blazegraph.gremlin.embedded
+com.blazegraph.gremlin.internal
+com.blazegraph.gremlin.listener
+com.blazegraph.gremlin.structure
+com.blazegraph.gremlin.util
