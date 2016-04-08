@@ -188,10 +188,17 @@ com.bigdata.util
 com.bigdata.util.concurrent
 com.bigdata.util.config
 com.bigdata.util.httpd
+com.blazegraph.vocab.pubchem
 cutthecrap.utils.striterators
+it.unimi.dsi
+it.unimi.dsi.bits
 it.unimi.dsi.compression
 it.unimi.dsi.fastutil.bytes.custom
 it.unimi.dsi.io
+it.unimi.dsi.lang
+it.unimi.dsi.logging
+it.unimi.dsi.parser
+it.unimi.dsi.parser.callback
 it.unimi.dsi.util
 junit.extensions.proxy
 junit.framework
