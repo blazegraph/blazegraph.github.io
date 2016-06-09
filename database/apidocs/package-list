@@ -188,6 +188,7 @@ com.bigdata.util
 com.bigdata.util.concurrent
 com.bigdata.util.config
 com.bigdata.util.httpd
+com.blazegraph.vocab.freebase
 com.blazegraph.vocab.pubchem
 cutthecrap.utils.striterators
 it.unimi.dsi
