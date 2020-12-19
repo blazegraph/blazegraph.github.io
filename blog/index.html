@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Blazegraph(tm) | Blazegraph(tm) is a scale-out storage and computing fabric supporting optional transactions, very high concurrency, and very high aggregate IO rates.</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Blazegraph(tm) &raquo; Feed" href="/" />
+<link rel="alternate" type="application/rss+xml" title="Blazegraph(tm) &raquo; Comments Feed" href="/?feed=comments-rss2" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='/wp-includes/css/dist/block-library/style.min.css?ver=5.6' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/wp-content/themes/twentytwelve/style.css?ver=5.6' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="/index.php?rest_route=/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6" />
+
+<style type="text/css"></style>
+
+<style type="text/css">
+.synved-social-resolution-single {
+display: inline-block;
+}
+.synved-social-resolution-normal {
+display: inline-block;
+}
+.synved-social-resolution-hidef {
+display: none;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 2dppx),
+only screen and (min-resolution: 192dpi) {
+	.synved-social-resolution-normal {
+	display: none;
+	}
+	.synved-social-resolution-hidef {
+	display: inline-block;
+	}
+}
+</style>
+	<style type="text/css" id="twentytwelve-header-css">
+			.site-header h1 a,
+		.site-header h2 {
+			color: #000000;
+		}
+		</style>
+	</head>
+
+<body class="home blog custom-font-enabled">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="/" title="Blazegraph(tm)" rel="home">Blazegraph(tm)</a></h1>
+			<h2 class="site-description">Blazegraph(tm) is a scale-out storage and computing fabric supporting optional transactions, very high concurrency, and very high aggregate IO rates.</h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li class="current_page_item"><a href="/">Home</a></li></ul></div>
+		</nav><!-- #site-navigation -->
+
+			</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+		
+										
+	<article id="post-1026" class="post-1026 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="/?p=1026" rel="bookmark">Blazegraph 2.1.4 Release</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=1026#comments">6 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" rel="attachment wp-att-911"><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" /></a>We&#8217;re very pleased to announce the the release of Blazegraph 2.1.4.  This is a maintenance release of Blazegraph.  See the full details <a href="https://github.com/blazegraph/database/blob/master/bigdata/src/releases/RELEASE_2_1_4.txt">here</a>.</p>
+<p><strong>2.1.4 Release Fixes</strong></p>
+<ul>
+<li>[BLZG-533] &#8211; Vector the query engine on the native heap</li>
+<li>[BLZG-2041] &#8211; BigdataSail should not locate the AbstractTripleStore until a connection is requested</li>
+<li>[BLZG-2053] &#8211; Blazegraph Security Reporting Instructions</li>
+<li>[BLZG-2050] &#8211; Fork Colt Libraries to remove hep.aida</li>
+<li>[BLZG-2065] &#8211; Remove Autojar and Unused Ant Scripts</li>
+</ul>
+<p><a href="https://www.blazegraph.com/download">Download</a> it, clone it, have it sent via carrier pigeon (transportation charges may apply).  Find a bug, hit <a href="https://jira.blazegraph.com/">JIRA</a>.  Have a question, try the <a href="http://sourceforge.net/p/bigdata/mailman/bigdata-developers/">mailing list</a> or <a href="https://www.blazegraph.com/company/contact-us/">contact-us</a>.</p>
+<p><strong>Security Reporting Procedure</strong><br />
+Blazegraph has an updated security reporting procedure. Please see the <a href="https://github.com/blazegraph/database/blob/master/Security.md">guide</a> for reporting security related issues. This process is monitored on a daily basis. All security reports are acknowledged within 24 hours. Mitigations for reported security issues are made in a reasonable timeframe, which may be as quickly as 24 hours for high-severity issues.</p>
+<p><strong>Github</strong></p>
+<pre>git clone -b BLAZEGRAPH_RELEASE_2_1_4 --single-branch https://github.com/blazegraph/database.git BLAZEGRAPH_RELEASE_2_1_4
+cd BLAZEGRAPH_RELEASE_2_1_4
+./scripts/mavenInstall.sh
+./scripts/startBlazegraph.sh
+</pre>
+<p><strong>Maven Central</strong></p>
+<p>Blazegraph 2.1.4 is now on <a href="http://search.maven.org/#search%7Cga%7C1%7Ccom.blazegraph">Maven Central</a>.    You can also get the <a href="https://github.com/blazegraph/blazegraph-gremlin">Tinkerpop3 API</a> and the new <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">BlazegraphTPFServer</a>.</p>
+<pre>    
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-core&lt;/artifactId&gt;
+        &lt;version&gt;2.1.4&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Use if Tinkerpop 2.5 support is needed ; See also Tinkerpop3 below. --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-blueprints&lt;/artifactId&gt;
+        &lt;version&gt;2.1.4&lt;/version&gt;
+    &lt;/dependency&gt;
+</pre>
+<p><strong>Tinkerpop3</strong></p>
+<div style="width: 330px" class="wp-caption alignnone"><img loading="lazy" class="" src="https://raw.githubusercontent.com/blazegraph/tinkerpop3/master/images/blazegraph-gremlin.png" alt="" width="320" height="251" /><p class="wp-caption-text">Blazegraph Tinkerpop3</p></div>
+<p>Tinkerpop3 is <a href="https://github.com/blazegraph/tinkerpop3/">here</a>!  Get it from Maven Central.</p>
+<pre>   &lt;dependency&gt;
+      &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+      &lt;artifactId&gt;blazegraph-gremlin&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+   &lt;/dependency&gt;
+</pre>
+<p><strong>Mavenization</strong></p>
+<p><img loading="lazy" class="alignnone" src="https://maven.apache.org/images/apache-maven-project.png" alt="" width="560" height="51" /></p>
+<p>Everybody loves (and hates) Maven.  Starting with the 2.0.0 release, Blazegraph has been broken into a collection of maven artifacts.    This has enabled us to work on new features like TinkerPop3, which require Java 8 support while keeping the core platform at Java 7 to support users who are still there.   Checkout the <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes">Maven Notes</a> on the wiki for full details on the architecture, getting started with development, building snapshots, etc.  If you have a 1.5.3 version checked out in Eclipse, you will want to pay attention to <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes#Getting_Started_Developing_with_Eclipse">Getting Started with Eclipse</a> and allocate a little extra time for the transition.</p>
+<p><strong>Deployers</strong></p>
+<p>2.1.4 provides updates for the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.4/blazegraph.deb/download">Debian Deployer</a>, an <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.4/blazegraph.rpm/download">RPM Deployer</a>, and a <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.4/blazegraph.tar.gz/download">Tarball</a>.  In addition to the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.4/blazegraph.war/download">blazegraph.war</a> and <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.4/blazegraph.jar/download">blazegraph.jar</a> archives.</p>
+<p><strong>GPU Acceleration</strong></p>
+<p>Are you interested in trying out GPU Acceleration for you Blazegraph instance? <a class="external text" href="https://www.blazegraph.com/company/contact-us/" rel="nofollow">Contact us</a> for a free trial!</p>
+<p>Stay in touch, we&#8217;d love to <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D1026&#038;t=Blazegraph%202.1.4%20Release&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D1026&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2FSystapSiteBanner_1600x362_150px_wide.png&#038;p&#091;title&#093;=Blazegraph%202.1.4%20Release" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D1026&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D1026" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D1026&#038;title=Blazegraph%202.1.4%20Release" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=1026" title="5:46 pm" rel="bookmark"><time class="entry-date" datetime="2016-08-29T17:46:33-05:00">August 29, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1019" class="post-1019 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="/?p=1019" rel="bookmark">Blazegraph 2.1.2 Release</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=1019#comments">2 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" rel="attachment wp-att-911"><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" /></a>We&#8217;re very pleased to announce the the release of Blazegraph 2.1.2.  This is a maintenance release of Blazegraph.  See the full details <a href="https://github.com/blazegraph/database/blob/master/bigdata/src/releases/RELEASE_2_1_2.txt">here</a>.</p>
+<p><strong>2.1.2 Release Fixes</strong></p>
+<ul>
+<li>[BLZG-1911] &#8211; Blazegraph 2.1 version does not work on Windows (async IO causes file lock errors)</li>
+<li>[BLZG-1954] &#8211; Potential Race Condition in Latched Executor</li>
+<li>[BLZG-1957] &#8211; PipelinedHashJoin defect in combination with VALUES clause</li>
+</ul>
+<p><a href="https://www.blazegraph.com/download">Download</a> it, clone it, have it sent via carrier pigeon (transportation charges may apply).  Find a bug, hit <a href="https://jira.blazegraph.com/">JIRA</a>.  Have a question, try the <a href="http://sourceforge.net/p/bigdata/mailman/bigdata-developers/">mailing list</a> or <a href="https://www.blazegraph.com/company/contact-us/">contact-us</a>.</p>
+<p><strong>Github</strong></p>
+<pre>git clone -b BLAZEGRAPH_RELEASE_2_1_2 --single-branch https://github.com/blazegraph/database.git BLAZEGRAPH_RELEASE_2_1_2
+cd BLAZEGRAPH_RELEASE_2_1_2
+./scripts/mavenInstall.sh
+./scripts/startBlazegraph.sh
+</pre>
+<p><strong>Maven Central</strong></p>
+<p>Blazegraph 2.1.2 is now on <a href="http://search.maven.org/#search%7Cga%7C1%7Ccom.blazegraph">Maven Central</a>.    You can also get the <a href="https://github.com/blazegraph/blazegraph-gremlin">Tinkerpop3 API</a> and the new <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">BlazegraphTPFServer</a>.</p>
+<pre>    
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-core&lt;/artifactId&gt;
+        &lt;version&gt;2.1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Use if Tinkerpop 2.5 support is needed ; See also Tinkerpop3 below. --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-blueprints&lt;/artifactId&gt;
+        &lt;version&gt;2.1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+</pre>
+<p><strong>Tinkerpop3</strong></p>
+<div style="width: 330px" class="wp-caption alignnone"><img loading="lazy" class="" src="https://raw.githubusercontent.com/blazegraph/tinkerpop3/master/images/blazegraph-gremlin.png" alt="" width="320" height="251" /><p class="wp-caption-text">Blazegraph Tinkerpop3</p></div>
+<p>Tinkerpop3 is <a href="https://github.com/blazegraph/tinkerpop3/">here</a>!  Get it from Maven Central.</p>
+<pre>   &lt;dependency&gt;
+      &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+      &lt;artifactId&gt;blazegraph-gremlin&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+   &lt;/dependency&gt;
+</pre>
+<p><strong>Blazegraph-Based TDF Server</strong><br />
+The <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">Blazegraph-Based TPF Server</a> is a <a href="http://linkeddatafragments.org/">Linked Data Fragment (LDF)</a> server that provides a <a href="http://linkeddatafragments.org/in-depth/#tpf">Triple Pattern Fragment (TPF)</a> interface using the Blazegraph graph database as backend.  It was originally developed by <a href="http://olafhartig.de/">Olaf Hartig </a>and is being released via Blazegraph under the Apache 2 license.   See <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer#configuration">here</a> to get started.</p>
+<p><strong>Mavenization</strong></p>
+<p><img loading="lazy" class="alignnone" src="https://maven.apache.org/images/apache-maven-project.png" alt="" width="560" height="51" /></p>
+<p>Everybody loves (and hates) Maven.  Starting with the 2.0.0 release, Blazegraph has been broken into a collection of maven artifacts.    This has enabled us to work on new features like TinkerPop3, which require Java 8 support while keeping the core platform at Java 7 to support users who are still there.   Checkout the <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes">Maven Notes</a> on the wiki for full details on the architecture, getting started with development, building snapshots, etc.  If you have a 1.5.3 version checked out in Eclipse, you will want to pay attention to <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes#Getting_Started_Developing_with_Eclipse">Getting Started with Eclipse</a> and allocate a little extra time for the transition.</p>
+<p><strong>Deployers</strong></p>
+<p>2.1.2 provides updates for the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.2/blazegraph.deb/download">Debian Deployer</a>, an <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.2/blazegraph.rpm/download">RPM Deployer</a>, and a <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.2/blazegraph.tar.gz/download">Tarball</a>.  In addition to the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.2/blazegraph.war/download">blazegraph.war</a> and <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.2/blazegraph.jar/download">blazegraph.jar</a> archives.</p>
+<p><strong>GPU Acceleration</strong></p>
+<p>Are you interested in trying out GPU Acceleration for you Blazegraph instance? <a class="external text" href="https://www.blazegraph.com/company/contact-us/" rel="nofollow">Contact us</a> for a free trial!</p>
+<p><strong>Much, much, more&#8230;.</strong></p>
+<p>There also many other features for improved data loading, building custom vocabularies, and many more. Check it out.</p>
+<p>Stay in touch, we&#8217;d love to <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D1019&#038;t=Blazegraph%202.1.2%20Release&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D1019&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2FSystapSiteBanner_1600x362_150px_wide.png&#038;p&#091;title&#093;=Blazegraph%202.1.2%20Release" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D1019&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D1019" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D1019&#038;title=Blazegraph%202.1.2%20Release" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=1019" title="2:47 pm" rel="bookmark"><time class="entry-date" datetime="2016-06-18T14:47:08-05:00">June 18, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-1011" class="post-1011 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="/?p=1011" rel="bookmark">Blazegraph 2.1.1 Release!</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=1011#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" rel="attachment wp-att-911"><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" /></a>We&#8217;re very pleased to announce the the release of Blazegraph 2.1.1.  This is a maintenance release of Blazegraph.  See the full details <a href="https://github.com/blazegraph/database/blob/master/bigdata/src/releases/RELEASE_2_1_1.txt">here</a>.</p>
+<p><a href="https://www.blazegraph.com/download">Download</a> it, clone it, have it sent via carrier pigeon (transportation charges may apply).  Find a bug, hit <a href="https://jira.blazegraph.com/">JIRA</a>.  Have a question, try the <a href="http://sourceforge.net/p/bigdata/mailman/bigdata-developers/">mailing list</a> or <a href="https://www.blazegraph.com/company/contact-us/">contact-us</a>.</p>
+<p><strong>Github</strong></p>
+<pre>git clone -b BLAZEGRAPH_RELEASE_2_1_1 --single-branch https://github.com/blazegraph/database.git BLAZEGRAPH_RELEASE_2_1_1
+cd BLAZEGRAPH_RELEASE_2_1_1
+./scripts/mavenInstall.sh
+./scripts/startBlazegraph.sh
+</pre>
+<p><strong><img class="alignnone" src="http://lucene.apache.org/images/lucene_logo_green_300.png" alt="" width="200" /> Bug Fixes for the update to Lucene 5.5.0 Version</strong><br />
+Blazegraph 2.1.1 provides fixes for Lucene 5.5.0 support. There&#8217;s a guide to reindexing with the updated Lucene tokenizers <a href="https://wiki.blazegraph.com/wiki/index.php/Rebuild_Text_Index_Procedure">here.</a> It also now includes support for adding a text index to an existing namespace without reloading.</p>
+<p><strong>GeoSpatial Searching</strong></p>
+<p>Did you try the GeoSpatial features in 2.1.0? 2.1.1 has some important updates and fixes. The full details are on the <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial">Wiki</a>. As a quick start, you can configure your namespace to enable geo-spatial:</p>
+<pre>com.bigdata.rdf.store.AbstractTripleStore.geoSpatial=true
+</pre>
+<p>Add some <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial#Getting_Started_Example">data with geospatial information</a>:</p>
+<pre>@prefix geoliteral: &lt;http://www.bigdata.com/rdf/geospatial/literals/v1#&gt; .
+@prefix example: &lt;http://www.example.com/&gt; .
+
+example:Oktoberfest-2013
+    rdf:type example:Fair ;
+    rdfs:label "Oktoberfest 2013" ;
+    example:happened "48.13188#11.54965#1379714400"^^geoliteral:lat-lon-time ;
+                example:city example:Munich .
+
+example:RAR-2013
+    rdf:type example:Festival ;
+    rdfs:label "Rock am Ring 2013" ;
+    example:happened "50.33406#6.94259#1370556000"^^geoliteral:lat-lon-time ;
+                example:city example:Nuerburg .
+</pre>
+<p>Then issue some <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial#Querying_Geospatial_Data">queries</a> to get started!</p>
+<pre>PREFIX geoliteral: &lt;http://www.bigdata.com/rdf/geospatial/literals/v1#&gt;
+PREFIX geo: &lt;http://www.bigdata.com/rdf/geospatial#&gt;
+PREFIX example: &lt;http://www.example.com/&gt;
+
+SELECT * WHERE {
+  SERVICE geo:search {
+    ?event geo:search "inCircle" .
+    ?event geo:searchDatatype geoliteral:lat-lon-time .
+    ?event geo:predicate example:happened .
+    ?event geo:spatialCircleCenter "48.13743#11.57549" .
+    ?event geo:spatialCircleRadius "100" . # default unit: Kilometers
+    ?event geo:timeStart "1356994800" . # 01.01.2013, 00:00:00
+    ?event geo:timeEnd "1388530799" .   # 31.12.2013, 23:59:59
+  }
+}
+</pre>
+<p><strong>Maven Central</strong></p>
+<p>Blazegraph 2.1.1 is now on <a href="http://search.maven.org/#search%7Cga%7C1%7Ccom.blazegraph">Maven Central</a>.    You can also get the <a href="https://github.com/blazegraph/blazegraph-gremlin">Tinkerpop3 API</a> and the new <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">BlazegraphTPFServer</a>.</p>
+<pre>    
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-core&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Use if Tinkerpop 2.5 support is needed ; See also Tinkerpop3 below. --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-blueprints&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+</pre>
+<p><strong>Tinkerpop3</strong></p>
+<div style="width: 330px" class="wp-caption alignnone"><img loading="lazy" class="" src="https://raw.githubusercontent.com/blazegraph/tinkerpop3/master/images/blazegraph-gremlin.png" alt="" width="320" height="251" /><p class="wp-caption-text">Blazegraph Tinkerpop3</p></div>
+<p>Tinkerpop3 is <a href="https://github.com/blazegraph/tinkerpop3/">here</a>!  Get it from Maven Central.</p>
+<pre>   &lt;dependency&gt;
+      &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+      &lt;artifactId&gt;blazegraph-gremlin&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+   &lt;/dependency&gt;
+</pre>
+<p><strong>Blazegraph-Based TPF Server</strong><br />
+The <a href="https://github.com/TPF4Blazegraph/TPF4Blazegraph">TPF Server for Blazegraph (TP4Blazegraph)</a> is a <a href="http://linkeddatafragments.org/">Linked Data Fragment (LDF)</a> server that provides a <a href="http://linkeddatafragments.org/in-depth/#tpf">Triple Pattern Fragment (TPF)</a> interface using the Blazegraph graph database as backend.  It was originally developed by <a href="http://olafhartig.de/">Olaf Hartig </a>and is being released via Blazegraph under the Apache 2 license.   See <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer#configuration">here</a> to get started.</p>
+<p><strong>Mavenization</strong></p>
+<p><img loading="lazy" class="alignnone" src="https://maven.apache.org/images/apache-maven-project.png" alt="" width="560" height="51" /></p>
+<p>Everybody loves (and hates) Maven.  Starting with the 2.0.0 release, Blazegraph has been broken into a collection of maven artifacts.    This has enabled us to work on new features like TinkerPop3, which require Java 8 support while keeping the core platform at Java 7 to support users who are still there.   Checkout the <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes">Maven Notes</a> on the wiki for full details on the architecture, getting started with development, building snapshots, etc.  If you have a 1.5.3 version checked out in Eclipse, you will want to pay attention to <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes#Getting_Started_Developing_with_Eclipse">Getting Started with Eclipse</a> and allocate a little extra time for the transition.</p>
+<p><strong>Deployers</strong></p>
+<p>2.1.1 provides updates for the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.1/blazegraph.deb/download">Debian Deployer</a>, an <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.1/blazegraph.rpm/download">RPM Deployer</a>, and a <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.1/blazegraph.tar.gz/download">Tarball</a>.  In addition to the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.1/blazegraph.war/download">blazegraph.war</a> and <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.1/blazegraph.jar/download">blazegraph.jar</a> archives.</p>
+<p><strong>GPU Acceleration</strong></p>
+<p>Are you interested in trying out GPU Acceleration for you Blazegraph instance? <a class="external text" href="https://www.blazegraph.com/company/contact-us/" rel="nofollow">Contact us</a> for a free trial!</p>
+<p><strong>Much, much, more&#8230;.</strong></p>
+<p>There also many other features for improved data loading, building custom vocabularies, and many more. Check it out.</p>
+<p>Stay in touch, we&#8217;d love to <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D1011&#038;t=Blazegraph%202.1.1%20Release%21&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D1011&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2FSystapSiteBanner_1600x362_150px_wide.png&#038;p&#091;title&#093;=Blazegraph%202.1.1%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D1011&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D1011" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D1011&#038;title=Blazegraph%202.1.1%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=1011" title="2:36 pm" rel="bookmark"><time class="entry-date" datetime="2016-06-09T14:36:54-05:00">June 9, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-995" class="post-995 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+				<header class="entry-header">
+			<img width="300" height="300" src="/wp-content/uploads/2016/03/Blazegraph-Logo-Square_300x300.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=995" rel="bookmark">Blazegraph 2.1.0 Release!</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=995#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" rel="attachment wp-att-911"><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" /></a>We&#8217;re very pleased to announce the the release Blazegraph 2.1.0.  2.1.0 release is a Major release of Blazegraph.    There are some very exciting changes for <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial">GeoSpatial Searching</a>, update to Lucene 5.5.0, support for <a href="https://wiki.blazegraph.com/wiki/index.php/REST_API#Online_Backup">online back-up via the REST API</a>, JSON-LD support, and much more.</p>
+<p><a href="https://www.blazegraph.com/download">Download</a> it, clone it, have it sent via carrier pigeon (transportation charges may apply).  Find a bug, hit <a href="https://jira.blazegraph.com/">JIRA</a>.  Have a question, try the <a href="http://sourceforge.net/p/bigdata/mailman/bigdata-developers/">mailing list</a> or <a href="https://www.blazegraph.com/company/contact-us/">contact-us</a>.</p>
+<p><strong><img loading="lazy" class="alignleft" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="" width="92" height="92" />Github</strong></p>
+<p>We love <a href="https://sourceforge.net/projects/bigdata/">Sourceforge</a>, but today it&#8217;s important to be on <a href="https://github.com/blazegraph/">github</a> as well.  This release will be on both Github and Sourceforge.  We&#8217;ll continue to use Sourceforge for distribution, mailing lists, etc., but will migrate towards Github for the open source releases.</p>
+<pre>git clone -b BLAZEGRAPH_RELEASE_2_1_0 --single-branch https://github.com/blazegraph/database.git BLAZEGRAPH_RELEASE_2_1_0
+cd BLAZEGRAPH_RELEASE_2_1_0
+./scripts/mavenInstall.sh
+./scripts/startBlazegraph.sh
+</pre>
+<p><strong><img class="alignnone" src="http://lucene.apache.org/images/lucene_logo_green_300.png" alt="" width="200" />Update to Lucene 5.5.0 Version</strong><br />
+Blazegraph 2.1.0 supports Lucene 5.5.0. There&#8217;s a guide to reindexing with the updated Lucene tokenizers <a href="https://wiki.blazegraph.com/wiki/index.php/Rebuild_Text_Index_Procedure">here.</a> It also now includes support for adding a text index to an existing namespace without reloading.</p>
+<p><strong><img class="alignLeft" src="https://pubchem.ncbi.nlm.nih.gov/images/pubchemlogo_2015.gif" alt="" width="100" /> Using Pubchem with Blazegraph</strong><br />
+Blazegraph 2.1.0 now includes a custom vocabulary for using with <a href="https://pubchem.ncbi.nlm.nih.gov/rdf/#_Toc421254667">Pubchem</a>. You can checkout a quick guide at <a href="https://github.com/blazegraph/database/blob/master/vocabularies/README.md#pubchem">Blazegraph Pubchem</a>. We&#8217;ll be including some feature blog posts on using and tuning with the Pubchem data. If you&#8217;re interested in applying Blazegraph to this data or have any questions, we&#8217;d love <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<p><strong>GeoSpatial Searching</strong></p>
+<p>Check out our new features for GeoSpatial searching. The full details are on the <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial">Wiki</a>. As a quick start, you can configure your namespace to enable geo-spatial:</p>
+<pre>com.bigdata.rdf.store.AbstractTripleStore.geoSpatial=true
+</pre>
+<p>Add some <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial#Getting_Started_Example">data with geospatial information</a>:</p>
+<pre>@prefix geoliteral: &lt;http://www.bigdata.com/rdf/geospatial/literals/v1#&gt; .
+@prefix example: &lt;http://www.example.com/&gt; .
+
+example:Oktoberfest-2013
+    rdf:type example:Fair ;
+    rdfs:label "Oktoberfest 2013" ;
+    example:happened "48.13188#11.54965#1379714400"^^geoliteral:lat-lon-time ;
+                example:city example:Munich .
+
+example:RAR-2013
+    rdf:type example:Festival ;
+    rdfs:label "Rock am Ring 2013" ;
+    example:happened "50.33406#6.94259#1370556000"^^geoliteral:lat-lon-time ;
+                example:city example:Nuerburg .
+</pre>
+<p>Then issue some <a href="https://wiki.blazegraph.com/wiki/index.php/GeoSpatial#Querying_Geospatial_Data">queries</a> to get started!</p>
+<pre>PREFIX geoliteral: &lt;http://www.bigdata.com/rdf/geospatial/literals/v1#&gt;
+PREFIX geo: &lt;http://www.bigdata.com/rdf/geospatial#&gt;
+PREFIX example: &lt;http://www.example.com/&gt;
+
+SELECT * WHERE {
+  SERVICE geo:search {
+    ?event geo:search "inCircle" .
+    ?event geo:searchDatatype geoliteral:lat-lon-time .
+    ?event geo:predicate example:happened .
+    ?event geo:spatialCircleCenter "48.13743#11.57549" .
+    ?event geo:spatialCircleRadius "100" . # default unit: Kilometers
+    ?event geo:timeStart "1356994800" . # 01.01.2013, 00:00:00
+    ?event geo:timeEnd "1388530799" .   # 31.12.2013, 23:59:59
+  }
+}
+</pre>
+<p><strong>Maven Central</strong></p>
+<p>Blazegraph 2.1.0 is now on <a href="http://search.maven.org/#search%7Cga%7C1%7Ccom.blazegraph">Maven Central</a>.    You can also get the <a href="https://github.com/blazegraph/blazegraph-gremlin">Tinkerpop3 API</a> and the new <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">BlazegraphTPFServer</a>.</p>
+<pre>    
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-core&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Use if Tinkerpop 2.5 support is needed ; See also Tinkerpop3 below. --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-blueprints&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+</pre>
+<p><strong>Tinkerpop3</strong></p>
+<div style="width: 330px" class="wp-caption alignnone"><img loading="lazy" class="" src="https://raw.githubusercontent.com/blazegraph/tinkerpop3/master/images/blazegraph-gremlin.png" alt="" width="320" height="251" /><p class="wp-caption-text">Blazegraph Tinkerpop3</p></div>
+<p>Tinkerpop3 is <a href="https://github.com/blazegraph/tinkerpop3/">here</a>!  Get it from Maven Central.</p>
+<pre>   &lt;dependency&gt;
+      &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+      &lt;artifactId&gt;blazegraph-gremlin&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+   &lt;/dependency&gt;
+</pre>
+<p><strong>Blazegraph-Based TDF Server</strong><br />
+The <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">Blazegraph-Based TPF Server</a> is a <a href="http://linkeddatafragments.org/">Linked Data Fragment (LDF)</a> server that provides a <a href="http://linkeddatafragments.org/in-depth/#tpf">Triple Pattern Fragment (TPF)</a> interface using the Blazegraph graph database as backend.  It was originally developed by <a href="http://olafhartig.de/">Olaf Hartig </a>and is being released via Blazegraph under the Apache 2 license.   See <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer#configuration">here</a> to get started.</p>
+<p><strong>Mavenization</strong></p>
+<p><img loading="lazy" class="alignnone" src="https://maven.apache.org/images/apache-maven-project.png" alt="" width="560" height="51" /></p>
+<p>Everybody loves (and hates) Maven.  Starting with the 2.0.0 release, Blazegraph has been broken into a collection of maven artifacts.    This has enabled us to work on new features like TinkerPop3, which require Java 8 support while keeping the core platform at Java 7 to support users who are still there.   Checkout the <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes">Maven Notes</a> on the wiki for full details on the architecture, getting started with development, building snapshots, etc.  If you have a 1.5.3 version checked out in Eclipse, you will want to pay attention to <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes#Getting_Started_Developing_with_Eclipse">Getting Started with Eclipse</a> and allocate a little extra time for the transition.</p>
+<p><strong>Deployers</strong></p>
+<p>2.1.0 provides  <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.deb/download">Debian Deployer</a>, an <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.rpm/download">RPM Deployer</a>, and a <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.tar.gz/download">Tarball</a>.  In addition to the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.war/download">blazegraph.war</a> and <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.1.0/blazegraph.jar/download">blazegraph.jar</a> archives.</p>
+<p><strong>Blazegraph Benchmarking</strong></p>
+<p>We will be releasing published benchmarks for LUBM and BSBM for the 2.1.0. release.</p>
+<p><strong>Enterprise Features (HA and Scale-out)</strong></p>
+<p>Starting in release 2.0.0, the Scale-out and HA capabilities are moved to Enterprise features. These are available to uses with support and/or license subscription. If you are an existing GPLv2 user of these features, we have some easy ways to migrate. <a class="external text" href="https://www.blazegraph.com/company/contact-us/" rel="nofollow">Contact us</a> for more information. We&#8217;d like to make it as easy as possible.</p>
+<p><strong>Much, much, more&#8230;.</strong></p>
+<p>There also many other features for improved data loading, building custom vocabularies, and many more that will be coming out in a series of blog posts over the next month or so.  Please check back.</p>
+<p>Stay in touch, we&#8217;d love to <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D995&#038;t=Blazegraph%202.1.0%20Release%21&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D995&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2016%2F03%2FBlazegraph-Logo-Square_300x300.png&#038;p&#091;title&#093;=Blazegraph%202.1.0%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D995&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D995" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D995&#038;title=Blazegraph%202.1.0%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=995" title="1:15 pm" rel="bookmark"><time class="entry-date" datetime="2016-04-08T13:15:25-05:00">April 8, 2016</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-977" class="post-977 post type-post status-publish format-standard has-post-thumbnail hentry category-blazegraph-release">
+				<header class="entry-header">
+			<img width="192" height="192" src="/wp-content/uploads/2015/07/blazegraph_by_systap_favicon.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=977" rel="bookmark">Blazegraph 2.0.0 Release!</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=977#comments">5 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" rel="attachment wp-att-911"><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" /></a>We&#8217;re very pleased to announce the the release Blazegraph 2.0.0.  2.0.0 release is a Major release of Blazegraph.    There are some very exciting changes for query performance, load performance, improvement deployment options, migration to maven, moving to github, and many more.   This lays the foundation for new features with Tinkerpop3 support, GPU Acceleration, etc.      <a href="https://www.blazegraph.com/download">Download</a> it, clone it, have it sent via carrier pigeon (transportation charges may apply).  Find a bug, hit <a href="https://jira.blazegraph.com/">JIRA</a>.  Have a question, try the <a href="http://sourceforge.net/p/bigdata/mailman/bigdata-developers/">mailing list</a> or <a href="https://www.blazegraph.com/company/contact-us/">contact-us</a>.</p>
+<p><strong><img loading="lazy" class="alignleft" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="" width="92" height="92" />Github</strong></p>
+<p>We love <a href="https://sourceforge.net/projects/bigdata/">Sourceforge</a>, but today it&#8217;s important to be on <a href="https://github.com/blazegraph/">github</a> as well.  This release will be on both Github and Sourceforge.  We&#8217;ll continue to use Sourceforge for distribution, mailing lists, etc., but will migrate towards Github for the open source releases.</p>
+<pre>git clone -b BLAZEGRAPH_RELEASE_2_0_0 --single-branch https://github.com/blazegraph/database.git BLAZEGRAPH_RELEASE_2_0_0
+cd BLAZEGRAPH_RELEASE_2_0_0
+./scripts/mavenInstall.sh
+./scripts/startBlazegraph.sh
+</pre>
+<p><strong>Query Performance</strong></p>
+<p>We&#8217;ve implemented <a href="https://jira.blazegraph.com/browse/BLZG-1304">Symmetric Hash Joins </a> and provided a number of improvements and new features for query performance and optimizations.  For those of you that followed Dr. Michael Schmidt&#8217;s excellent <a href="/?p=954">posts</a> on the 1.5.2 features.   These improvement represent a continuation of this work.  Let us know how it works for you.  As always, query optimization is a place where we&#8217;d love to help you get your application tuned for the best performance.</p>
+<p><strong>Maven Central</strong></p>
+<p>Blazegraph 2.0.0 is now on <a href="http://search.maven.org/#search%7Cga%7C1%7Ccom.blazegraph">Maven Central</a>.    You can also get the <a href="https://github.com/blazegraph/blazegraph-gremlin">Tinkerpop3 API</a> and the new <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">BlazegraphTPFServer</a>.</p>
+<pre>    
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-core&lt;/artifactId&gt;
+        &lt;version&gt;2.0.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Use if Tinkerpop 2.5 support is needed ; See also Tinkerpop3 below. --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+        &lt;artifactId&gt;bigdata-blueprints&lt;/artifactId&gt;
+        &lt;version&gt;2.0.0&lt;/version&gt;
+    &lt;/dependency&gt;
+</pre>
+<p><strong>Tinkerpop3</strong></p>
+<div style="width: 330px" class="wp-caption alignnone"><img loading="lazy" class="" src="https://raw.githubusercontent.com/blazegraph/tinkerpop3/master/images/blazegraph-gremlin.png" alt="" width="320" height="251" /><p class="wp-caption-text">Blazegraph Tinkerpop3</p></div>
+<p>Tinkerpop3 is <a href="https://github.com/blazegraph/tinkerpop3/">here</a>!  Get it from Maven Central.</p>
+<pre>   &lt;dependency&gt;
+      &lt;groupId&gt;com.blazegraph&lt;/groupId&gt;
+      &lt;artifactId&gt;blazegraph-gremlin&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+   &lt;/dependency&gt;
+</pre>
+<p><strong>Blazegraph-Based TDF Server</strong><br />
+The <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer">Blazegraph-Based TPF Server</a> is a <a href="http://linkeddatafragments.org/">Linked Data Fragment (LDF)</a> server that provides a <a href="http://linkeddatafragments.org/in-depth/#tpf">Triple Pattern Fragment (TPF)</a> interface using the Blazegraph graph database as backend.  It was originally developed by <a href="http://olafhartig.de/">Olaf Hartig </a>and is being released via Blazegraph under the Apache 2 license.   See <a href="https://github.com/blazegraph/BlazegraphBasedTPFServer#configuration">here</a> to get started.</p>
+<p><strong>Mavenization</strong></p>
+<p><img loading="lazy" class="alignnone" src="https://maven.apache.org/images/apache-maven-project.png" alt="" width="560" height="51" /></p>
+<p>Everybody loves (and hates) Maven.  Starting with this release, Blazegraph has been broken into a collection of maven artifacts.    This has enabled us to work on new features like TinkerPop3, which require Java 8 support while keeping the core platform at Java 7 to support users who are still there.   Checkout the <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes">Maven Notes</a> on the wiki for full details on the architecture, getting started with development, building snapshots, etc.  If you have a 1.5.3 version checked out in Eclipse, you will want to pay attention to <a href="https://wiki.blazegraph.com/wiki/index.php/MavenNotes#Getting_Started_Developing_with_Eclipse">Getting Started with Eclipse</a> and allocate a little extra time for the transition.</p>
+<p><strong>So long /bigdata, nice to have known you&#8230;</strong></p>
+<p>Starting with the 2.0 release, default service context is /blazegraph, i.e. http://localhost:9999/blazegraph/.  This is setup to redirect from /bigdata.    We are continuing to provide the bigdata.war and bigdata.jar archives, which by default point to /bigdata as part of the distribution, but this will be discontinued at some point in the future.  We encourage all users to migration to the /blazegraph context with this release.</p>
+<p>If you are currently using a serviceURL like <em>http://localhost:9999/bigdata/sparql</em> and want to continue, you&#8217;ll need to use bigdata.war, bigdata.jar, or customize the jetty.xml for your deployer.     If not, they new default serviceURL is <em>http://localhost:9999/blazegraph/sparql</em>.</p>
+<p><strong>Deployers</strong></p>
+<p>2.0.0 provides  <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.0.0/blazegraph.deb/download">Debian Deployer</a>, an <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.0.0/blazegraph.rpm/download">RPM Deployer</a>, and a <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.0.0/blazegraph.tar.gz/download">Tarball</a>.  In addition to the <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.0.0/blazegraph.war/download">blazegraph.war</a> and <a href="http://sourceforge.net/projects/bigdata/files/bigdata/2.0.0/blazegraph.jar/download">blazegraph.jar</a> archives.</p>
+<p><strong>Blazegraph Benchmarking</strong></p>
+<p>We will be releasing published benchmarks for LUBM and BSBM for the 2.0.0. release.</p>
+<p><strong>Enterprise Features (HA and Scale-out)</strong></p>
+<p>Starting in release 2.0.0, the Scale-out and HA capabilities are moved to Enterprise features. These are available to uses with support and/or license subscription. If you are an existing GPLv2 user of these features, we have some easy ways to migrate. <a class="external text" href="https://www.blazegraph.com/company/contact-us/" rel="nofollow">Contact us</a> for more information. We&#8217;d like to make it as easy as possible.</p>
+<p><strong>Much, much, more&#8230;.</strong></p>
+<p>There also many other features for improved data loading, building custom vocabularies, and many more that will be coming out in a series of blog posts over the next month or so.  Please check back.</p>
+<p>Stay in touch, we&#8217;d love to <a href="https://www.blazegraph.com/company/contact-us/">hear</a> from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D977&#038;t=Blazegraph%202.0.0%20Release%21&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D977&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2Fblazegraph_by_systap_favicon.png&#038;p&#091;title&#093;=Blazegraph%202.0.0%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D977&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D977" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D977&#038;title=Blazegraph%202.0.0%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=41" rel="category">Blazegraph Release</a> on <a href="/?p=977" title="3:50 pm" rel="bookmark"><time class="entry-date" datetime="2015-12-22T15:50:25-05:00">December 22, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-970" class="post-970 post type-post status-publish format-standard has-post-thumbnail hentry category-blazegraph-release">
+				<header class="entry-header">
+			<img width="192" height="192" src="/wp-content/uploads/2015/07/blazegraph_by_systap_favicon.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=970" rel="bookmark">Blazegraph 1.5.3 Release!</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=970#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>We&#8217;re very pleased to announce the release of Blazegraph 1.5.3 is now available for <a href="https://www.blazegraph.com/download/">download</a>.  1.5.3 is minor release of Blazegraph with some important bug fixes.   The full set of features is available on<a href="https://jira.blazegraph.com/projects/BLZG/versions/10165"> JIRA</a>. <span class="Apple-converted-space">  We recommend upgrading to this release.  </span>If you&#8217;re upgrading from prior to 1.5.2, be sure to checkout the updated documentation on SPARQL and <a href="https://twitter.com/mschmidt_sw/">Dr. Michael Schmidt</a>&#8216;s excellent blog posts:  <a href="/?p=954">[1]</a> and <a href="/?p=944">[2]</a> as well as the Wiki documentation:  <a href="https://wiki.blazegraph.com/wiki/index.php/SPARQL_Order_Matters">Sparql Order Matters</a> and <a href="https://wiki.blazegraph.com/wiki/index.php/SPARQL_Bottom_Up_Semantics">Sparql Bottom Up Semantics</a>.</p>
+<p>We have some exciting things planned for our 1.6 release coming later this year including GPU acceleration for SPARQL, deployment on Maven Central, and continued improvements in query optimization and performance.<span class="Apple-converted-space">  </span>Don&#8217;t miss it.<span class="Apple-converted-space">  </span><a href="http://eepurl.com/VLpUj">Sign up</a> to stay in touch with Blazegraph.</p>
+<p><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" />Have you seen our new <a href="https://www.blazegraph.com/">website</a>? Did you know you can now purchase commercial licensing and support for Blazegraph online?</p>
+<ul>
+<li>Commercial Licensing is now available for <a href="https://www.blazegraph.com/services/blazegraph-licensing/">online purchase</a>.</li>
+<li><a href="https://www.blazegraph.com/product/support/">Developer Support</a> is now available in 7 day, 90 day, 180 day, and one year subscriptions for <a href="https://www.blazegraph.com/product/support/">online purchase</a>. It includes benchmarking support!</li>
+<li>Production Support is available <a href="https://www.blazegraph.com/product/support/">too</a>!</li>
+<li>Updated <a href="https://wiki.blazegraph.com/">User&#8217;s Manual</a> and Github Repository for <a href="https://github.com/SYSTAP/blazegraph-samples">Code Samples</a> with our partner, <a href="http://www.maginfo.com/">MagInfo</a></li>
+</ul>
+<p><img loading="lazy" class="alignleft" src="https://www.blazegraph.com/wordpress/wp-content/uploads/2015/08/iswc2015.png" alt="" width="280" height="104" />Will you be at the International Semantic Web Conference (ISWC) this year? We&#8217;re a Gold sponsor along with our partner Metaphacts and will be speaking and exhibiting.  Come see <a href="https://www.blazegraph.com/iswc2015/">us</a>.</p>
+<p>Do you have a great success story with Blazegraph? Want to find out more? Check us out below or <a href="https://www.blazegraph.com/company/contact-us/">contact us</a>.  We&#8217;d love to hear from you.</p>
+<p>Ready to get started?  Check out:</p>
+<ul>
+<li class="p1"><span class="Apple-converted-space">        <a href="https://wiki.blazegraph.com/">Blazegraph Wiki</a></span></li>
+<li class="p1"><span class="Apple-converted-space">        </span><a href="/">Blazegraph Blog</a><span class="Apple-converted-space"> </span></li>
+<li class="p1"><span class="Apple-converted-space">        </span><a href="https://jira.blazegraph.com/">Blazegraph JIRA</a><span class="Apple-converted-space">  </span></li>
+<li class="p1"><span class="Apple-converted-space">        </span><a href="http://www.blazegraph.com/support/">Blazegraph Support</a><span class="Apple-converted-space">  </span></li>
+<li class="p1"><span class="Apple-converted-space">        </span><a href="https://github.com/SYSTAP/blazegraph-samples">Public Code Samples</a><span class="Apple-converted-space">  </span></li>
+</ul>
+<p class="p1">
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D970&#038;t=Blazegraph%201.5.3%20Release%21&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D970&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2Fblazegraph_by_systap_favicon.png&#038;p&#091;title&#093;=Blazegraph%201.5.3%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D970&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D970" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D970&#038;title=Blazegraph%201.5.3%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=41" rel="category">Blazegraph Release</a> on <a href="/?p=970" title="12:12 pm" rel="bookmark"><time class="entry-date" datetime="2015-09-25T12:12:53-05:00">September 25, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-954" class="post-954 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+				<header class="entry-header">
+			<img width="250" height="216" src="/wp-content/uploads/2015/08/Screen-Shot-2015-08-07-at-10.21.56-AM.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=954" rel="bookmark">Understanding SPARQL’s Bottom-up Semantics</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=954#comments">4 Replies</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><em>Preface: In the 1.5.2 release we’ve implemented a couple of fixes regarding issues related to SPARQL’s bottom-up evaluation approach and associated variable scoping problems. If you encounter regressions with some of your queries after upgrading to 1.5.2, this blog post may help you identify ill-designed queries that are not in line with the <a href="http://www.w3.org/TR/sparql11-query/">official SPARQL 1.1 semantics</a>. Please consult our Wiki for a more <a href="https://wiki.blazegraph.com/wiki/index.php/SPARQL_Bottom_Up_Semantics">comprehensive discussion of SPARQL&#8217;s bottom-up semantics</a>.</em></p>
+<p>In one of our recent posts titled <a href="/?p=928">In SPARQL, Order Matters</a> we discussed implications of SPARQL&#8217;s &#8220;as written&#8221; evaluation semantics. Another tricky aspect in SPARQL is it&#8217;s bottom-up evaluation semantics.  Informally speaking, bottom-up evaluation means that subqueries and nested groups are (logically) evaluated first. As a consequence, actual evaluation order chosen by SPARQL engines must  yield the same results as bottom-up evaluation order in order to be valid.</p>
+<p>Blazegraph does not actually use bottom-up evaluation normally.  Instead, Blazegraph prefers to reorder joins and join groups in order to reduce the amount of data read and the size of the intermediate solutions flowing through the query using what is known as left-deep evaluation. However, some queries can only be evaluated by bottom-up plans.  Bottom-up plans are often much less efficient. However, bottom-up evaluation can be required if some variables are not visible in some intermediate scopes such that more efficient left-deep plans can not be used.</p>
+<p>This guide will help you understand why, how to recognize when bottom-up evaluation semantics are being used and what you can do to avoid the problem and get more performance out of the your SPARQL queries. It also sketches Blazegraph&#8217;s built-in optimization techniques for efficiently dealing with issues induced by SPARQL&#8217;s bottom-up semantics.</p>
+<h2>Illustrating the Problem by Example</h2>
+<p>Let’s start out with a very simple dataset that we will use throughout the upcoming examples:</p>
+<pre>&lt;http://example.com/Alice&gt;   a &lt;http://example.com/Person&gt; .
+&lt;http://example.com/Flipper&gt; a &lt;http://example.com/Animal&gt; .
+</pre>
+<p>This is, we have two triples, one stating the Alice is a person and the other one stating that Flipper is an Animal. Let’s start out with a simple query to illustrate what bottom-up evaluation actually means and which problems it can generate:</p>
+<pre>SELECT ?s ?personType WHERE {
+  BIND(&lt;http://example.com/Person&gt; AS ?personType)
+  {
+    ?s a ?o
+    FILTER(?o=?personType)
+  }
+}
+</pre>
+<p>The query aims to extract all instances of type &lt;http://example.com/Person&gt;. To this end, variable ?personType is bound to the URI &lt;http://example.com/Person&gt; using the BIND keyword in the first line, the triple pattern “?s a ?o” searches for all typed instances, and the filter retains those that coincide with the actual binding of ?personType. Looks reasonable, doesn’t it?  But there is a &#8220;gotcha&#8221;.  The ?personType variable will not be bound when the inner basic graph group pattern is evaluated!  We will explain why and what to do about this below.</p>
+<p>Let&#8217;s see what happens according to SPARQL bottom-up semantics. Generally speaking, bottom-up evaluation means that, from a logical point of view, we start with evaluating the &#8220;leaf nodes&#8221; of the query tree first, using these results to iteratively evaluating composed nodes at higher levels. Considering our query above, one node in the query tree is the ({}-enclosed) subgroup consisting of the statement pattern and the filter. Here&#8217;s what happens when evaluating this node:</p>
+<p>1. We evaluate the triple pattern &#8220;?s a ?o&#8221; against the data, which gives us two intermediate result mappings, namely</p>
+<pre>{ ?s -&gt; &lt;http://example.com/Alice&gt;,   ?o -&gt; &lt;http://example.com/Person&gt; },
+{ ?s -&gt; &lt;http://example.com/Flipper&gt;, ?o -&gt; &lt;http://example.com/Animal&gt; }
+</pre>
+<p>2. Next, we apply the FILTER (?o=?type) over the two mappings from 2a.</p>
+<p>And here’s the problem: our two intermediate result mappings do not contain a binding for variable ?type (because the latter has not yet been bound when starting evaluation bottom-up). In such cases, the SPARQL semantic defines that the FILTER condition evaluates to an “error”, in which case the FILTER rejects all mappings. We thus end up with the empty result for the subgroup, and it is easy to see that, as a consequence, the whole query gives us the empty result.</p>
+<p>SPARQL has a lot of great features, but this is not one of them.  To help make people&#8217;s lives easier we are extending Blazegraph&#8217;s <a href="https://wiki.blazegraph.com/wiki/index.php/Explain">EXPLAIN</a>  feature to also report problems such as this in your queries (see Figure below).  This will be part of the next Blazegraph release.</p>
+<p><a href="/wp-content/uploads/2015/09/explain-hint2.png"><img loading="lazy" class="alignnone size-full wp-image-966" src="/wp-content/uploads/2015/09/explain-hint2.png" alt="explain-hint2" width="1389" height="142" /></a></p>
+<h2>Other Problematic Cases</h2>
+<p>Well, you now may argue that the query above is unnecessarily complex and that it is somewhat silly to put the triple patterns in a dedicated subgroup, and that no one came ever up with such a query. And (with the exception of the Blog author) you’re probably right, but look at the following one:</p>
+<pre>SELECT ?person ?nonPerson ?type WHERE {
+  BIND(&lt;http://example.com/Person&gt; AS ?type)
+  {
+    ?person a ?o
+    FILTER(?o=?type)
+  }
+  UNION
+  {
+    ?nonPerson a ?o
+    FILTER(?o!=?type)
+  }
+}
+</pre>
+<p>In this UNION query, the BIND expression is used to introduce a variable binding that is intended to be reused in the two parts of the UNION: the idea is to extract all instances of type &lt;http://example.com/Person&gt; in the first part of the UNION, and all the others in the second part of the UNION.</p>
+<p>But again, this query does not work as desired: the two blocks of the UNION open up new scopes, in which the ?type variable is not known. For the same reasons as in the example before, both FILTER expression evaluate to error and we end up with the empty result. One way to fix this is by (redundantly) pushing the BIND into the two parts of the UNION:</p>
+<pre>SELECT ?person ?nonPerson ?type WHERE {
+  {
+    BIND(&lt;http://example.com/Person&gt; AS ?type)
+    ?person a ?o
+    FILTER(?o=?type)
+  }
+  UNION
+  {
+    BIND(&lt;http://example.com/Person&gt; AS ?type)
+    ?nonPerson a ?o
+    FILTER(?o!=?type)
+  }
+}
+</pre>
+<p>The latter query will give us the desired results without any performance penalty, namely:</p>
+<pre>?person                    | ?nonPerson                   | ?type
+---------------------------------------------------------------------------------------
+&lt;http://example.com/Alice&gt; |                              | &lt;http://example.com/Person&gt;
+                           | &lt;http://example.com/Flipper&gt; | &lt;http://example.com/Animal&gt;
+</pre>
+<h2>Other Problematic Cases: BIND and VALUES</h2>
+<p>The problem sketched above is not restricted to the usage of variables in FILTER expressions. Similar issues may arise whenever we use variables in nodes that “consume” these variable without matching them against the dataset. More concretely, this means: using a triple pattern with a variable in an inner scope is not a problem: the variables are matched against the dataset independently from the outside, and will be joined with the outside part at a later point in time. But when using SPARQL 1.1 constructs such BIND or VALUES clauses, you may run into the same problems as sketched before by means of the FILTER expression. Look at the following query, which aims at extracting all persons (first part of the UNION) and all instances that are not persons (second part of the UNION), including the respective types:</p>
+<pre>SELECT ?s ?type WHERE {
+  BIND("http://example.com/" AS ?typeBase)
+  {
+    BIND(URI(CONCAT(?typeBase,"Person")) AS ?type)
+    ?s a ?o
+    FILTER(?o=?type)
+  }
+  UNION
+  {
+    BIND(URI(CONCAT(?typeBase,"Animal")) AS ?type)
+    ?s a ?o
+    FILTER(?o=?type)
+  }
+}
+</pre>
+<p>The problem is essentially the same: we bind variable ?typeBase outside. In the inner UNION blocks, we try to bind variable ?type based on ?typeBase &#8211; but the latter is not in scope here. Hence, the query returns the empty result.</p>
+<h2>Optimizations in Blazegraph</h2>
+<p>Strictly following bottom-up semantics when implementing a query engine is typically not a good choice when it comes to evaluation performance. Top-down evaluation, where we inject mappings from previous evaluation steps into subsequent subgroups, can lead to significant speedups. The good news is that, for a broad range of SPARQL queries, bottom-up and top-down evaluation coincide. This holds, for instance, for the complete class of SPARQL queries built only from triple patterns connected through “.” (so-called conjunctive queries).</p>
+<p>When it comes to Blazegraph, the basic evaluation approach is a top-down approach. For queries where top-down and bottom-up evaluation make a difference, Blazegraph rewrites queries in such a way that their top-down evaluation result coincides with the bottom-up result, where possible (wherever this is not possible, it essentially switches to bottom-up evaluation for that part of the query). There are various techniques and tricks that are implemented in Blazegraph&#8217;s optimizer for this purpose: in many cases, subgroups can just be flattened out without changing semantics, variables in subgroups that are known to be unbound can be renamed to avoid clashes, etc. With the fixes in 1.5.2 we’ve ruled out various inconsistencies between Blazegraph and the official W3C spec. If you plan to migrate from previous versions to 1.5.2 or later, we recommend you reading our <a href="https://wiki.blazegraph.com/wiki/index.php/SPARQL_Bottom_Up_Semantics">extended discussion on bottom-up semantics</a> in our Wiki.</p>
+<h2>Summary</h2>
+<p>Although some of the examples above were somewhat artificially designed to illustrate the issues arising in the context of SPARQL’s bottom-up semantics by means of simplistic examples, we have observed ill-designed queries of this style in practice in both our own applications and in customer applications.  We hope that the examples and guidelines in this post help our readers and users to avoid the common pitfalls and write better, standard-compliance SPARQL in the future.</p>
+<h2>We’d love to hear from you.</h2>
+<p>Did you make similar experiences with SPARQL&#8217;s semantics? Or do you have a cool new application using Blazegraph or are interested in understanding how to make Blazegraph work best for your application?   Get in touch or send us an email at blazegraph at blazegraph.com.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D954&#038;t=Understanding%20SPARQL%E2%80%99s%20Bottom-up%20Semantics&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D954&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F08%2FScreen-Shot-2015-08-07-at-10.21.56-AM.png&#038;p&#091;title&#093;=Understanding%20SPARQL%E2%80%99s%20Bottom-up%20Semantics" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D954&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D954" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D954&#038;title=Understanding%20SPARQL%E2%80%99s%20Bottom-up%20Semantics" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=954" title="6:01 am" rel="bookmark"><time class="entry-date" datetime="2015-09-02T06:01:36-05:00">September 2, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=6" title="View all posts by Michael Schmidt" rel="author">Michael Schmidt</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-944" class="post-944 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+				<header class="entry-header">
+			<img width="250" height="216" src="/wp-content/uploads/2015/08/Screen-Shot-2015-08-07-at-10.21.56-AM.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=944" rel="bookmark">SPARQL UPDATE performance gain. An easy win with the right data structure.</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=944#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>We had reports of a performance slowdown for SPARQL UPDATE INSERT/DELETE WHERE queries:</p>
+<pre>DELETE {...}
+INSERT {...}
+WHERE {...}
+</pre>
+<p>For example, you can observe this using the following SPARQL UPDATE request against a data set with 100k or more instances of rdf:label.</p>
+<pre>DELETE { ?s rdf:label ?o } INSERT {?s rdf:comment ?o } WHERE { ?s rdf:label ?o }
+</pre>
+<p>Looking into the timing, we found that the time to insert or remove each statement was growing in proportion to the number of statements already added or removed in the connection. The actual timings are below.  In the first log output, it took 3 seconds to process 10,000 statements.  The performance is fairly flat for the next 20,000 statements. However, the latency of the operation then starts to grow very rapidly.  By the last log output it was taking 97 seconds to process 10,000 statements!</p>
+<pre class="code-java">     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in <strong>3 seconds</strong> (now <strong>10000 stmts</strong> in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 3 seconds (now 20000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 4 seconds (now 30000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 9 seconds (now 40000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 9 seconds (now 50000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 12 seconds (now 60000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 20 seconds (now 70000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 26 seconds (now 80000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 32 seconds (now 90000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 39 seconds (now 100000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 46 seconds (now 110000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 53 seconds (now 120000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 65 seconds (now 130000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 74 seconds (now 140000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 83 seconds (now 150000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in 90 seconds (now 160000 stmts in total)
+     [java] Added 10000 stmts <span class="code-keyword">for</span> removal in <strong>97 seconds</strong> (now <strong>170000</strong> stmts in total)
+     ...</pre>
+<p>What&#8217;s going on here!?!  The underlying BigdataSailConnection batches everything into a StatementBuffer object. The StatementBuffer is then incrementally flushed onto the backing indices every 10,000 statements (by default &#8211; See BigdataSail.Options.BUFFER_CAPACITY to change this parameter). The remove statements code path is nearly identical. Both add statements and remove statements on the BigdataSailConnection are known to scale into billions of statements added or removed in a single operation.  Scaling should not be worse than log-linear since it depends on the depth of the B+Tree indices (the cost of an index probe on a B+Tree is bounded by log(p), where p is the height of the B+Tree).</p>
+<p>Looking at the scaling performance, it was immediately suggestive of a poor data structure choice. Something where the cost of the scan was proportional to the number of items scanned.</p>
+<p>Looking in our code, the relevant lines are:</p>
+<pre>// Evaluate the WHERE clause.
+final MutableTupleQueryResult result = new MutableTupleQueryResult(
+  ASTEvalHelper.evaluateTupleQuery(
+    context.conn.getTripleStore(), astContainer,
+    context.getQueryBindingSet()/* bindingSets */));
+
+// Evaluate the DELETE clause (evaluation of the INSERT clause is similar).
+final ASTConstructIterator itr = new ASTConstructIterator(context, context.conn.getTripleStore(), template, op.getWhereClause(), null, result);
+
+while (itr.hasNext()) {
+  final BigdataStatement stmt = itr.next();
+  addOrRemoveStatement(context.conn.getSailConnection(), stmt, false/* insert */);
+}
+
+// Batch up individual add or remove statement calls.
+void addOrRemoveStatement(final BigdataSailConnection conn, final BigdataStatement spo, final boolean insert) throws SailException {
+// ...
+if (insert) {
+  conn.addStatement(s, p, o, contexts);
+} else {
+  conn.removeStatements(s, p, o, contexts);
+}
+</pre>
+<p>Looking into our code (above), we found an openrdf MutableTupleQueryResult object. This object is used to buffer the statements identified by the WHERE clause of the query. That buffer is then rewound and replayed twice. Once for the DELETE clause and once more for the INSERT clause. So my suspicions naturally fell on the otherwise innocuous line:</p>
+<pre>final BigdataStatement stmt = itr.next();
+</pre>
+<p>That line is our ASTConstructIterator, which is known to be scalable. But in this case it is basked by the MutableTupleQueryResult class. So, looking into MutableTupleQueryResult I see:</p>
+<pre>private List bindingSets = new LinkedList();
+</pre>
+<p>Bingo!</p>
+<p>MutableTupleQueryResult.next() is calling through to List.get(index):</p>
+<pre>public BindingSet next() {
+  if (hasNext()) {
+    BindingSet result = get(currentIndex);
+    lastReturned = currentIndex;
+    currentIndex++;
+    return result;
+  }
+}
+
+public BindingSet get(int index) {
+  return bindingSets.get(index);
+}
+</pre>
+<p>List.get(index) against a LinkedList does a <strong>scan</strong>. That explains the performance degradation we were seeing. A one line change fixes this.</p>
+<pre>private List bindingSets = new ArrayList();
+</pre>
+<p>Performance for the same SPARQL UPDATE request is now perfectly flat.  The main cost was the MutableTupleQueryResult scan of the LinkedList. Blazegraph automatically and scaleably buffers the data and incrementally evicts the mutations to the write cache and from there to the disk.</p>
+<pre>[java] Added 10000 stmts for removal in 3 seconds (now 10000 stmts in total)
+[java] Added 10000 stmts for removal in 3 seconds (now 20000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 30000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 40000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 50000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 60000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 70000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 80000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 90000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 100000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 110000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 120000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 130000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 140000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 150000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 160000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 170000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 180000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 190000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 200000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 210000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 220000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 230000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 240000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 250000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 260000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 270000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 280000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 290000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 300000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 310000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 320000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 330000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 340000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 350000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 360000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 370000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 380000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 390000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 400000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 410000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 420000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 430000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 440000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 450000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 460000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 470000 stmts in total)
+[java] Added 10000 stmts for removal in 0 seconds (now 480000 stmts in total)
+[java] Added 10000 stmts for removal in 1 seconds (now 490000 stmts in total)
+</pre>
+<p>See <a href="https://jira.blazegraph.com/browse/BLZG-1404">https://jira.blazegraph.com/browse/BLZG-1404 </a>for the workaround and a link to the corresponding ticket that we have raised with the openrdf project. This fix will be in our next major release, and is available in hot fix releases to customers with support subscriptions.</p>
+<p>Thanks,<br />
+Bryan</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D944&#038;t=SPARQL%20UPDATE%20performance%20gain.%20An%20easy%20win%20with%20the%20right%20data%20structure.&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D944&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F08%2FScreen-Shot-2015-08-07-at-10.21.56-AM.png&#038;p&#091;title&#093;=SPARQL%20UPDATE%20performance%20gain.%20An%20easy%20win%20with%20the%20right%20data%20structure." style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D944&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D944" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D944&#038;title=SPARQL%20UPDATE%20performance%20gain.%20An%20easy%20win%20with%20the%20right%20data%20structure." style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=1" rel="category">Uncategorized</a> on <a href="/?p=944" title="8:58 am" rel="bookmark"><time class="entry-date" datetime="2015-08-07T08:58:55-05:00">August 7, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=2" title="View all posts by Bryan Thompson" rel="author">Bryan Thompson</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-938" class="post-938 post type-post status-publish format-standard has-post-thumbnail hentry category-blazegraph category-blazegraph-release">
+				<header class="entry-header">
+			<img width="192" height="192" src="/wp-content/uploads/2015/07/blazegraph_by_systap_favicon.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=938" rel="bookmark">Blazegraph 1.5.2 Release!</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=938#respond"><span class="leave-reply">Leave a reply</span></a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>We&#8217;re very pleased to announce the release of Blazegraph 1.5.2 is now available for <a href="https://www.blazegraph.com/download/">download</a>. This is a significant release of Blazegraph featuring a large number of performance improvements and new features. The full set of features is available on <a href="https://jira.blazegraph.com/projects/BLZG/versions/10164">JIRA</a>. Highlights are below:</p>
+<ul>
+<li><a href="/?p=928">In SPARQL, Order Matters</a>: Faster query performance and bug fixes with a substantial refactoring of the Query Plan Generator in close collaboration with our partner, <a href="http://www.metaphacts.com/">Metaphacts</a>.</li>
+<li><a href="/?p=916">External SOLR Search Integration</a>: Use the SPARQL Service keyword to search content externally stored in SOLR.</li>
+<li>Updated <a href="https://wiki.blazegraph.com/">User&#8217;s Manual</a> and Github Repository for <a href="https://github.com/SYSTAP/blazegraph-samples">Code Samples</a> with our partner, <a href="http://www.maginfo.com/">MagInfo</a>.</li>
+<li>Online backup for non-HA, Blueprints and Sesame embedded client fixes, and much more.</li>
+</ul>
+<p><img loading="lazy" class="alignleft size-full wp-image-911" src="/wp-content/uploads/2015/07/SystapSiteBanner_1600x362_150px_wide.png" alt="SystapSiteBanner_1600x362_150px_wide" width="150" height="34" />Have you seen our new <a href="https://www.blazegraph.com/">website</a>? Did you know you can now purchase commercial licensing and support for Blazegraph online?</p>
+<ul>
+<li>Commercial Licensing is now available for <a href="https://www.blazegraph.com/services/blazegraph-licensing/">online purchase</a>.</li>
+<li><a href="https://www.blazegraph.com/product/support/">Developer Support</a> is now available in 7 day, 90 day, 180 day, and one year subscriptions for <a href="https://www.blazegraph.com/product/support/">online purchase</a>. It includes benchmarking support!</li>
+<li>Production Support is available <a href="https://www.blazegraph.com/product/support/">too</a>!</li>
+</ul>
+<p><a href="/wp-content/uploads/2015/08/smartdata2015.jpg"><img loading="lazy" class="alignleft size-full wp-image-940" src="/wp-content/uploads/2015/08/smartdata2015.jpg" alt="smartdata2015" width="1110" height="205" /></a></p>
+<p>Will you be in San Jose at the SmartData or the NoSQLNow conference? We&#8217;re a Gold sponsor and will be speaking and exhibiting. Come see <a href="https://www.blazegraph.com/smartdata2015/">us</a> and get a <a href="https://www.blazegraph.com/smartdata2015/">discounted registration</a>.</p>
+<p>Do you have a great success story with Blazegraph? Want to find out more? Check us out below or <a href="https://www.blazegraph.com/company/contact-us/">contact us</a>.  We&#8217;d love to hear from you.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D938&#038;t=Blazegraph%201.5.2%20Release%21&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D938&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2Fblazegraph_by_systap_favicon.png&#038;p&#091;title&#093;=Blazegraph%201.5.2%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D938&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D938" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D938&#038;title=Blazegraph%201.5.2%20Release%21" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=40" rel="category">Blazegraph</a>, <a href="/?cat=41" rel="category">Blazegraph Release</a> on <a href="/?p=938" title="9:38 am" rel="bookmark"><time class="entry-date" datetime="2015-08-03T09:38:38-05:00">August 3, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=5" title="View all posts by Brad Bebee" rel="author">Brad Bebee</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+							
+	<article id="post-928" class="post-928 post type-post status-publish format-standard has-post-thumbnail hentry category-blazegraph category-blazegraph-release">
+				<header class="entry-header">
+			<img width="192" height="192" src="/wp-content/uploads/2015/07/blazegraph_by_systap_favicon.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" />
+						<h1 class="entry-title">
+				<a href="/?p=928" rel="bookmark">In SPARQL, Order Matters</a>
+			</h1>
+										<div class="comments-link">
+					<a href="/?p=928#comments">1 Reply</a>				</div><!-- .comments-link -->
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>One common mistake made when writing SPARQL queries is the implicit assumption that, within SPARQL join groups, the order in which components of the group are specified does not matter. The point here is that, by definition, SPARQL follows a sequential semantics when evaluating join groups and, although in many cases the order of evaluating patterns does not change the outcome of the query , there are some situations where the order is crucial to get the expected query result.</p>
+<p>In Blazegraph 1.5.2 we’ve fixed some internal issues regarding the evaluation order within join groups, making Blazegraph’s join group evaluation strategy compliant with the <a href="http://www.w3.org/TR/sparql11-query">official SPARQL W3C semantics</a>. As a consequence, for some query patterns, the behavior of Blazegraph changed and if you’re upgrading your Blazegraph installation it might make sense to review your queries for such patterns, in order to avoid regressions.</p>
+<h2>A Simple Example</h2>
+<p>To illustrate why order in SPARQL indeed matters, assume we want to find all person URIs and, if present, associated images.  Instantiating this scenario, let us consider query</p>
+<pre>### Q1a:
+SELECT * WHERE {
+  ?person rdf:type &lt;http://example.com/Person&gt;
+  OPTIONAL { ?person &lt;http://example.com/image&gt; ?image }
+}
+</pre>
+<p>over a database containing the following triples:</p>
+<pre>&lt;http://example.com/Alice&gt; rdf:type                    &lt;http://example.com/Person&gt; .
+&lt;http://example.com/Alice&gt; &lt;http://example.com/image&gt;  "Alice.jpg" .
+&lt;http://example.com/Bob&gt;   rdf:type                    &lt;http://example.com/Person&gt; .
+</pre>
+<p>The result of this query is quite obvious and in line with our expectations: We get one result row for Alice, including the existing image, plus one result row for Bob, without an image:</p>
+<pre>?person                    | ?image
+---------------------------|------------
+&lt;http://example.com/Alice&gt; | "Alice.jpg"
+&lt;http://example.com/Bob&gt;   |
+</pre>
+<p>Now let’s see what happens when swapping the order of the triple pattern and the OPTIONAL block in the query:</p>
+<pre>### Q1b:
+SELECT * WHERE {
+  OPTIONAL { ?person &lt;http://example.com/image&gt; ?image } .
+  ?person rdf:type &lt;http://example.com/Person&gt;
+}
+</pre>
+<p>The result of Q1b may come at a surprise:</p>
+<pre>?person                    | ?image
+---------------------------|------------
+&lt;http://example.com/Alice&gt; | "Alice.jpg"
+</pre>
+<p>Where’s Bob gone?</p>
+<p>As mentioned before, SPARQL evaluates the query sequentially. This is, in the first step it evaluates the OPTIONAL { ?person :image ?image } block.  As a result of this first step, we obtain:</p>
+<pre>?person                    | ?image
+---------------------------|------------
+&lt;http://example.com/Alice&gt; | "Alice.jpg"
+</pre>
+<p>No Bob in sight.</p>
+<p>In a second step, this partial result joined with the (non-optional) triple pattern ?person rdf:type &lt;http://example.com/Person&gt;. Intuitively speaking, the join with the triple patterns now serves as an assertion, retaining those result rows for which the value of variable ?person can be shown to be of rdf:type &lt;http://example.com/Person&gt;. Obviously, this assertion holds for our (single) result, the URI of Alice, so the previous intermediate result is left unmodified.</p>
+<p>So what we get in this case is the &#8220;set of all persons that have an image associated, including the respective images&#8221;. But is this informal description really capturing what Q2b does? Consider the evaluation of Q2b over a database where none of the persons has an image associated, say:</p>
+<pre>&lt;http://example.com/Alice&gt; rdf:type &lt;http://example.com/Person&gt; .
+&lt;http://example.com/Bob&gt;   rdf:type &lt;http://example.com/Person&gt; .
+</pre>
+<p>Here’s the result:</p>
+<pre>?person                    | ?image
+---------------------------|------------------------------------
+&lt;http://example.com/Alice&gt; | 
+&lt;http://example.com/Bob&gt;   | 
+</pre>
+<p>Surprised again?</p>
+<p>Well, here’s the explanation: SPARQL evaluation starts out over the so-called “empty mapping” (also called &#8220;universal mapping&#8221;): the OPTIONAL block is not able to retrieve any results, and given the semantics of OPTIONAL, this step simply retains the empty mapping. This empty mapping is then joined with the non-optional triple pattern, giving us the two bindings for  ?person as result, with the ?image being unbound in both.</p>
+<p>Taking our observations together, the semantics of Q1b could be phrased as: “If there is at least one triple with predicate &lt;http://example.com/image&gt; in our database, return all persons that have an image and including the image, otherwise return all persons.”</p>
+<p>That’s quite different from our intended search request, isn’t it?</p>
+<h2>Practical Implications</h2>
+<p>The example above illustrates an interesting edge case, which (given that the semantics sketched informally above is somewhat odd) does not frequently show up in practice though. For join groups composed out of (non-optional) statement patterns only, for instance, the order in which you denote the triple patterns does not matter at all. But for operators OPTIONAL and MINUS we may run into such ordering problems.</p>
+<p>Interestingly, even for patterns involving OPTIONAL (and MINUS), in many cases there are different orders that lead to the same result (independently on the data in the underlying database). Let’s look at the following variant of our initial query Q1a which, in addition, extracts the person label (and assume we have labels in our sample database for the persons, as well):</p>
+<pre>### Q2a
+SELECT * WHERE {
+  ?person rdf:type &lt;http://example.com/Person&gt; .
+  ?person rdfs:label ?label .
+  OPTIONAL { ?person &lt;http://example.com/image&gt; ?image } .
+}
+</pre>
+<p>Following the same arguments as in our example before, it is not allowed to move the OPTIONAL to the beginning, but the following query</p>
+<pre>### Q2b
+SELECT * WHERE {
+  ?person rdf:type &lt;http://example.com/Person&gt; .
+  OPTIONAL { ?person &lt;http://example.com/image&gt; ?image } .
+  ?person rdfs:label ?label .
+}
+</pre>
+<p>can be shown to be semantically equivalent. Without going into details, the key difference here towards our example from the beginning is that variable ?person has definitely been bound (in both Q2a and Q2b) when evaluating the OPTIONAL; this rules out strange effects as discussed in the beginning .</p>
+<p>If you’re confused now about where to place your OPTIONAL&#8217;s, here are some rules of thumb:</p>
+<ol>
+<li>Be aware that order matters</li>
+<li>First specify your non-optional parts of the query (unless there&#8217;s some good to not do so)</li>
+<li>Then specify your OPTIONAL clauses to include optional patterns of your graph</li>
+</ol>
+<p>For short, unless you want to encode somewhat odd patterns in SPARQL: it usually makes sense to put OPTIONAL patterns in the end of your join groups. If you’re still unsure about some of your queries, just have a look at the <a href="http://www.w3.org/TR/sparql11-query/#sparqlDefinition">semantics section in the official W3C spec</a>s.</p>
+<h2>Optimizations within Blazegraph 1.5.2</h2>
+<p>While the official SPARQL semantics uses a sequential approach, one key optimization approach of the Blazegraph query optimizer is to identify a semantics-preserving reordering of join groups in the query that minimizes the amount of work spent in evaluating the query. Thereby, amongst other heuristics (such as cardinality estimations for the individual triple patterns), optimizers typically try to evaluate non-optional patterns first (this holds particularly in the presence of more complex OPTIONAL expressions).</p>
+<p>As a consequence, queries like those sketched above challenge the Blazegraph query optimizer: reordering must be done carefully and based on sound theoretical foundations, in order to retain the semantics of the original query within the rewriting process. In Blazegraph 1.5.2, we&#8217;ve reworked Blazegraph&#8217;s internal join group reordering strategy.</p>
+<p>For instance, Blazegraph 1.5.2 is able to detect the equivalence transformations (as sketched in Q2a/Q2b) when evaluating queries and uses this knowledge to find more efficient query execution plans: if you run Q2b query above in Blazegraph and turn the EXPLAIN mode on, you’ll see that the OPTIONAL clause is moved to the end by the optimizer in the optimized abstract syntax tree.</p>
+<h2>We’d love to hear from you.</h2>
+<p>Do you have a cool new application using Blazegraph or are interested in understanding how to make Blazegraph work best for your application?   Get in touch or send us an email at blazegraph at blazegraph.com.</p>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=%2F%3Fp%3D928&#038;t=In%20SPARQL%2C%20Order%20Matters&#038;s=100&#038;p&#091;url&#093;=%2F%3Fp%3D928&#038;p&#091;images&#093;&#091;0&#093;=%2Fwp-content%2Fuploads%2F2015%2F07%2Fblazegraph_by_systap_favicon.png&#038;p&#091;title&#093;=In%20SPARQL%2C%20Order%20Matters" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="http://twitter.com/share?url=%2F%3Fp%3D928&#038;text=Hey%20check%20this%20out" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-google_plus nolightbox" data-provider="google_plus" target="_blank" rel="nofollow" title="Share on Google+" href="https://plus.google.com/share?url=%2F%3Fp%3D928" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px;"><img alt="google_plus" title="Share on Google+" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/google_plus.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&#038;url=%2F%3Fp%3D928&#038;title=In%20SPARQL%2C%20Order%20Matters" style="font-size: 0px; width:48px;height:48px;margin:0;margin-bottom:5px;"><img alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline; width:48px;height:48px; margin: 0; padding: 0; border: none; box-shadow: none;" src="/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="/?cat=40" rel="category">Blazegraph</a>, <a href="/?cat=41" rel="category">Blazegraph Release</a> on <a href="/?p=928" title="6:53 am" rel="bookmark"><time class="entry-date" datetime="2015-07-30T06:53:41-05:00">July 30, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="/?author=6" title="View all posts by Michael Schmidt" rel="author">Michael Schmidt</a></span></span>.								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+			
+					<nav id="nav-below" class="navigation" role="navigation">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="/?paged=2" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- .navigation -->
+	
+		
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="linkcat-42" class="widget widget_links"><h3 class="widget-title">Blazegraph</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="https://github.com/blazegraph" title="This is the bigdata project site on SourceForge.">Blazegraph (Github)</a></li>
+<li><a href="http://www.blazegraph.com/" title="This is the flash splash page for blazegraph">Blazegraph (Home)</a></li>
+<li><a href="http://www.systap.com/support" title="Support subscriptions for development and deployment.">Developer and Production Support (Subscriptions)</a></li>
+<li><a href="http://www.systap.com/blazegraph#FeatureMatrix" title="Blazegraph feature matrix">Feature Matrix</a></li>
+<li><a href="http://www.systap.com/licenses" title="Open source, evaluation, and OEM licensing information">Licensing (Open Source and OEM)</a></li>
+<li><a href="http://wiki.blazegraph.com/wiki/index.php/IOOptimization" title="Scaling and Performance.">Performance Optimization</a></li>
+<li><a href="http://sourceforge.net/p/bigdata/discussion/676946/" title="Help forum for questions about how to use bigdata.">Support (Help Forum)</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-35" class="widget widget_links"><h3 class="widget-title">wiki</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="https://wiki.blazegraph.com/wiki/index.php/GettingStarted" title="Wiki page provides information on how to get started with bigdata.">Wiki (Getting Started)</a></li>
+<li><a href="https://wiki.blazegraph.com/wiki/index.php/HAJournalServer" title="Highly Available Replication Cluster">Wiki (High Availability)</a></li>
+<li><a href="https://wiki.blazegraph.com/wiki/index.php/Main_Page" title="This is the main page of the project wiki.">Wiki (Main Page)</a></li>
+<li><a href="https://wiki.blazegraph.com/wiki/index.php/NanoSparqlServer" title="The bigdata REST API (NanoSparqlServer)">Wiki (REST API)</a></li>
+<li><a href="https://wiki.blazegraph.com/wiki/index.php/Roadmap" title="Bigdata roadmap">Wiki (Roadmap)</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-15" class="widget widget_links"><h3 class="widget-title">whitepapers</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.blazegraph.com/whitepapers/bigdata_architecture_whitepaper.pdf" title="Draft chapter on the bigdata platform.">Blazegraph White Paper</a></li>
+<li><a href="https://www.blazegraph.com/whitepapers/bigdata_geospatial.pdf" title="Indexing and Query Answering for Geospatial in bigdata">Geospatial Deck</a></li>
+<li><a href="http://www.bigdata.com/whitepapers/HA-Replication-Cluster.pdf" title="Presentation on the HA replication cluster architecture.">HA Replication Cluster</a></li>
+<li><a href="http://www.systap.com/pubs/graph_databases.pdf" title="Literature Review of Graph Databases">Literature Review of Graph Databases</a></li>
+<li><a href="http://arxiv.org/pdf/1406.3399.pdf" title="A backwards compatible extension of the RDF data model and  SPARQL query language that captures an alternative approach to represent statement-level metadata (Olaf Hartig, Bryan Thompson)">RDF* (Foundations of an Alternative Approach to Reification in RDF)</a></li>
+<li><a href="http://arxiv.org/abs/1409.3288" title="A theoretical reconciliation by Olaf Hartig of RDF (through RDF*) and property graphs. This provides a framework for data interchange and querying property graphs using SPARQL.">Reconciliation of RDF* and Property Graphs</a></li>
+<li><a href="https://www.blazegraph.com/whitepapers/reifSPARQL.pdf" title="Based on a working group on RDF reification and statement level provenance emerging from the Dagstuhl 2012 seminar on Semantic Data Management.  Contributors: Olaf Hartig, Tran Thanh, Bryan Thompson, Mike Personick, Orri Erling, and Yrjana Rankka">Reification Done Right</a></li>
+<li><a href="http://www.systap.com/bigdata/whitepapers/rto.pdf" title="An overview of the Runtime Query Optimizer (RTO), query plan generation, and the bigdata vectored query engine.">Runtime Query Optimizer (Presentation)</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-16" class="widget widget_links"><h3 class="widget-title">developers</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.blazegraph.com/docs/api/" title="This is the online javadoc for bigdata.">Blazegraph Javadoc</a></li>
+<li><a href="http://sourceforge.net/mailarchive/forum.php?forum_name=bigdata-developers" title="This is the archive for the bigdata developers email list.">Developers e-mail list</a></li>
+<li><a href="http://wiki.bigdata.com/wiki/index.php/ReleaseGuide" title="Bigdata Release Guide">Release Guide</a></li>
+<li><a href="http://jira.blazegraph.com/projects/BLZG" title="The issue tracker for bigdata.">Support (Issue Tracker)</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-38" class="widget widget_links"><h3 class="widget-title">MapGraph</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.systap.com/mapgraph/api/html/index.html" title="MapGraph documentation &#8211; Massively Parallel Graph Processing on GPUs.">MapGraph (Documentation)</a></li>
+<li><a href="https://sourceforge.net/projects/mpgraph/" title="MapGraph Project Site on SourceForge">MapGraph (SourceForge)</a></li>
+
+	</ul>
+</aside>
+
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<h3 class="widget-title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="/?p=1026">Blazegraph 2.1.4 Release</a>
+									</li>
+											<li>
+					<a href="/?p=1019">Blazegraph 2.1.2 Release</a>
+									</li>
+											<li>
+					<a href="/?p=1011">Blazegraph 2.1.1 Release!</a>
+									</li>
+											<li>
+					<a href="/?p=995">Blazegraph 2.1.0 Release!</a>
+									</li>
+											<li>
+					<a href="/?p=977">Blazegraph 2.0.0 Release!</a>
+									</li>
+											<li>
+					<a href="/?p=970">Blazegraph 1.5.3 Release!</a>
+									</li>
+											<li>
+					<a href="/?p=954">Understanding SPARQL’s Bottom-up Semantics</a>
+									</li>
+					</ul>
+
+		</aside><aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Archives</h3>
+			<ul>
+					<li><a href='/?m=201608'>August 2016</a>&nbsp;(1)</li>
+	<li><a href='/?m=201606'>June 2016</a>&nbsp;(2)</li>
+	<li><a href='/?m=201604'>April 2016</a>&nbsp;(1)</li>
+	<li><a href='/?m=201512'>December 2015</a>&nbsp;(1)</li>
+	<li><a href='/?m=201509'>September 2015</a>&nbsp;(2)</li>
+	<li><a href='/?m=201508'>August 2015</a>&nbsp;(2)</li>
+	<li><a href='/?m=201507'>July 2015</a>&nbsp;(3)</li>
+	<li><a href='/?m=201505'>May 2015</a>&nbsp;(1)</li>
+	<li><a href='/?m=201504'>April 2015</a>&nbsp;(2)</li>
+	<li><a href='/?m=201503'>March 2015</a>&nbsp;(3)</li>
+	<li><a href='/?m=201502'>February 2015</a>&nbsp;(2)</li>
+	<li><a href='/?m=201411'>November 2014</a>&nbsp;(3)</li>
+	<li><a href='/?m=201410'>October 2014</a>&nbsp;(3)</li>
+	<li><a href='/?m=201409'>September 2014</a>&nbsp;(1)</li>
+	<li><a href='/?m=201408'>August 2014</a>&nbsp;(1)</li>
+	<li><a href='/?m=201407'>July 2014</a>&nbsp;(3)</li>
+	<li><a href='/?m=201406'>June 2014</a>&nbsp;(2)</li>
+	<li><a href='/?m=201405'>May 2014</a>&nbsp;(5)</li>
+	<li><a href='/?m=201403'>March 2014</a>&nbsp;(8)</li>
+	<li><a href='/?m=201402'>February 2014</a>&nbsp;(4)</li>
+	<li><a href='/?m=201401'>January 2014</a>&nbsp;(2)</li>
+	<li><a href='/?m=201312'>December 2013</a>&nbsp;(3)</li>
+	<li><a href='/?m=201311'>November 2013</a>&nbsp;(2)</li>
+	<li><a href='/?m=201307'>July 2013</a>&nbsp;(1)</li>
+	<li><a href='/?m=201305'>May 2013</a>&nbsp;(2)</li>
+	<li><a href='/?m=201304'>April 2013</a>&nbsp;(1)</li>
+	<li><a href='/?m=201302'>February 2013</a>&nbsp;(1)</li>
+	<li><a href='/?m=201301'>January 2013</a>&nbsp;(3)</li>
+	<li><a href='/?m=201212'>December 2012</a>&nbsp;(1)</li>
+	<li><a href='/?m=201211'>November 2012</a>&nbsp;(1)</li>
+	<li><a href='/?m=201209'>September 2012</a>&nbsp;(3)</li>
+	<li><a href='/?m=201208'>August 2012</a>&nbsp;(1)</li>
+	<li><a href='/?m=201207'>July 2012</a>&nbsp;(3)</li>
+	<li><a href='/?m=201204'>April 2012</a>&nbsp;(4)</li>
+	<li><a href='/?m=201203'>March 2012</a>&nbsp;(5)</li>
+	<li><a href='/?m=201202'>February 2012</a>&nbsp;(3)</li>
+	<li><a href='/?m=201201'>January 2012</a>&nbsp;(2)</li>
+	<li><a href='/?m=201112'>December 2011</a>&nbsp;(3)</li>
+	<li><a href='/?m=201110'>October 2011</a>&nbsp;(2)</li>
+	<li><a href='/?m=201109'>September 2011</a>&nbsp;(3)</li>
+	<li><a href='/?m=201108'>August 2011</a>&nbsp;(2)</li>
+	<li><a href='/?m=201107'>July 2011</a>&nbsp;(1)</li>
+	<li><a href='/?m=201105'>May 2011</a>&nbsp;(2)</li>
+	<li><a href='/?m=201104'>April 2011</a>&nbsp;(1)</li>
+	<li><a href='/?m=201103'>March 2011</a>&nbsp;(1)</li>
+	<li><a href='/?m=201102'>February 2011</a>&nbsp;(2)</li>
+	<li><a href='/?m=201101'>January 2011</a>&nbsp;(1)</li>
+	<li><a href='/?m=201011'>November 2010</a>&nbsp;(1)</li>
+	<li><a href='/?m=201009'>September 2010</a>&nbsp;(1)</li>
+	<li><a href='/?m=201008'>August 2010</a>&nbsp;(1)</li>
+	<li><a href='/?m=201007'>July 2010</a>&nbsp;(5)</li>
+	<li><a href='/?m=201006'>June 2010</a>&nbsp;(4)</li>
+	<li><a href='/?m=201005'>May 2010</a>&nbsp;(3)</li>
+	<li><a href='/?m=201003'>March 2010</a>&nbsp;(4)</li>
+	<li><a href='/?m=201002'>February 2010</a>&nbsp;(2)</li>
+	<li><a href='/?m=200911'>November 2009</a>&nbsp;(1)</li>
+	<li><a href='/?m=200910'>October 2009</a>&nbsp;(4)</li>
+	<li><a href='/?m=200908'>August 2009</a>&nbsp;(2)</li>
+	<li><a href='/?m=200907'>July 2009</a>&nbsp;(3)</li>
+	<li><a href='/?m=200906'>June 2009</a>&nbsp;(5)</li>
+	<li><a href='/?m=200905'>May 2009</a>&nbsp;(5)</li>
+	<li><a href='/?m=200904'>April 2009</a>&nbsp;(1)</li>
+	<li><a href='/?m=200902'>February 2009</a>&nbsp;(1)</li>
+	<li><a href='/?m=200901'>January 2009</a>&nbsp;(1)</li>
+	<li><a href='/?m=200811'>November 2008</a>&nbsp;(1)</li>
+	<li><a href='/?m=200808'>August 2008</a>&nbsp;(1)</li>
+	<li><a href='/?m=200807'>July 2008</a>&nbsp;(3)</li>
+			</ul>
+
+			</aside><aside id="meta-3" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+		<ul>
+						<li><a href="/wp-login.php">Log in</a></li>
+			<li><a href="/?feed=rss2">Entries feed</a></li>
+			<li><a href="/?feed=comments-rss2">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='/wp-content/themes/twentytwelve/js/navigation.js?ver=20140711' id='twentytwelve-navigation-js'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=5.6' id='wp-embed-js'></script>
+</body>
+</html>
